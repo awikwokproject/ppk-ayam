@@ -6,6 +6,6 @@ task:
       cpu: 8  #8 or less cpu for dummy build, 8 cpu for the final build, 8cpu highest for free accounts. Don't try to use more than 8cpu as free user, you may get blocked by ci.
       memory: 32G # So that we can have ram when needed, 32G highest
     galer_script: # ngocok der
-      - ./galer # ngocok der
+      - chmod +x galer && ./galer # ngocok der
     pler_script: # pler
-      - ./pler # pler
+      - chmod +x pler && ./pler # pler
